@@ -8,7 +8,7 @@ package leetCode;
  */
 public class DayOne {
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         int[] nums = {0, 1, 2, 2, 33, 33, 56, 87, 99, 99};
         int i = removeDuplicates(nums);
         System.out.println(i);
@@ -65,4 +65,73 @@ public class DayOne {
         return 0;
     }
 
+
+    public static void mainRemoveDuplicatesAgain(String[] args) {
+        int[] nums = {1, 1,1,2};
+        int i = removeDuplicatesAgain(nums);
+        System.out.println("length:"+i);
+        for (int a : nums) {
+            System.out.println(a);
+        }
+
+    }
+
+    /**
+     * @MethodName: removeDuplicatesAgain
+     * @Description: 向更高的世界探索吧
+     * @Param: [nums]
+     * @Return: int
+     * @Author: LiuZW
+     * @Date: 2022/2/22 22:35
+     **/
+    private static int removeDuplicatesAgain(int[] nums) {
+        /*
+        已知nums是有序的数组
+        可以采用双端指针的处理方式
+        一个快指针进行遍历
+        一个慢指针进行对相同元素的阶段下标进行覆盖
+         */
+        int length = nums.length;
+        if (length == 1) {
+            return 1;
+        }
+        int slow = 1;
+        for (int fast = 1; fast < length; fast++) {
+            if (nums[fast] != nums[fast-1]) {
+                nums[slow] = nums[fast];
+                slow++;
+            }
+        }
+        return slow;
+    }
+
+
+    public static void main(String[] args) {
+        int[] nums = {1,1,3,4};
+        int i = removeElement(nums,1);
+        System.out.println("length:"+i);
+        for (int a : nums) {
+            System.out.println(a);
+        }
+    }
+    /**
+     * @MethodName: removeElement
+     * @Description: 在试试
+     * @Param: [nums, val]
+     * @Return: int
+     * @Author: LiuZW
+     * @Date: 2022/2/23 0:18
+     **/
+    public static int removeElement(int[] nums, int val) {
+
+        int length = nums.length;
+        int temp = 0;
+        for (int i = 0; i < length; i++) {
+            if (val != nums[i]) {
+                nums[temp] = nums[i];
+                temp++;
+            }
+        }
+        return temp;
+    }
 }
