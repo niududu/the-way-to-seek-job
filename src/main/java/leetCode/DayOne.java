@@ -67,9 +67,9 @@ public class DayOne {
 
 
     public static void mainRemoveDuplicatesAgain(String[] args) {
-        int[] nums = {1, 1,1,2};
+        int[] nums = {1, 1, 1, 2};
         int i = removeDuplicatesAgain(nums);
-        System.out.println("length:"+i);
+        System.out.println("length:" + i);
         for (int a : nums) {
             System.out.println(a);
         }
@@ -97,7 +97,7 @@ public class DayOne {
         }
         int slow = 1;
         for (int fast = 1; fast < length; fast++) {
-            if (nums[fast] != nums[fast-1]) {
+            if (nums[fast] != nums[fast - 1]) {
                 nums[slow] = nums[fast];
                 slow++;
             }
@@ -107,13 +107,14 @@ public class DayOne {
 
 
     public static void main(String[] args) {
-        int[] nums = {1,1,3,4};
-        int i = removeElement(nums,1);
-        System.out.println("length:"+i);
+        int[] nums = {1, 1, 3, 4};
+        int i = removeElement(nums, 1);
+        System.out.println("length:" + i);
         for (int a : nums) {
             System.out.println(a);
         }
     }
+
     /**
      * @MethodName: removeElement
      * @Description: 在试试
