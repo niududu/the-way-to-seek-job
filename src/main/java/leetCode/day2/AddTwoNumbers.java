@@ -1,5 +1,7 @@
 package leetCode.day2;
 
+import leetCode.common.ListNode;
+
 import java.util.HashMap;
 
 /**
