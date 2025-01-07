@@ -1,7 +1,5 @@
 package leetCode.day05;
 
-import java.util.*;
-
 /**
  * @Description:
  * @Author: LiuZW
@@ -16,18 +14,41 @@ public class LongestPalindrome {
         System.out.println(s1);
     }
 
+    /*
+            示例 1：
+
+        输入：s = "babad"
+        输出："bab"
+        解释："aba" 同样是符合题意的答案。
+        示例 2：
+
+        输入：s = "cbbd"
+        输出："bb"
+     */
     public static String longestPalindrome(String s) {
-        List<String> objects = new ArrayList<>();
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        String[] splits = s.split("");
-        for (int i = 0; i < splits.length; i++) {
-            if (hashMap.containsKey(splits[i])) {
-                objects.add(s.substring(hashMap.get(splits[i]), i + 1));
+
+        int n = s.length();
+        Boolean[][] booleans = new Boolean[n][n];
+        // 对角线赋值为true
+        for (int i = 0; i < n; i++) {
+            booleans[i][i] = true;
+        }
+        // 长度为2
+        for (int i = 0; i < n - 1; i++) {
+            if (s.charAt(i) == s.charAt(i + 1)) {
+                booleans[i][i + 1] = true;
             } else {
-                hashMap.put(splits[i], i);
+                booleans[i][i + 1] = false;
             }
         }
-        return objects.isEmpty() ? splits[0]: objects.stream().max(Comparator.comparing(String::length)).get();
+        // 长度大于3
+        for (int i = 3; i <= n; i++) {
+            for (int j = 0; j < n - 3; j++) {
+                if (s.charAt(i) == s.charAt(i + 1)) {
+                }
+            }
+        }
+        return "";
     }
 
 }
